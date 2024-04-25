@@ -239,6 +239,9 @@ class Audio:
 
         return Source(new_source, does_loop)
 
+    def play_stream(stream):
+        raise NotImplementedError()
+    
     def play_file(
         self,
         file_path: str,
@@ -270,7 +273,7 @@ class Audio:
             InvalidFileType: If the file type is not valid.
         """
         name = name or self.__gen_name()
-
+        
         if not path.exists(file_path):
             raise FileNotFoundError(f'File "{file_path}" not found.')
 
